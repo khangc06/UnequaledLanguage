@@ -1,6 +1,5 @@
 import random
 import math
-
 #1
 def centralten(x, y, z):
     #mean
@@ -23,50 +22,66 @@ def centralten(x, y, z):
                 median = z
             else:
                 median = y
-    return mean, median
+    return 'mean', mean, 'median', median
 #2
 def rand0m():
     a = random.randint(1,100)
-    print(a)
     if (a%2==0 or a%3==0 or a%5==0):
-        return True
+        return a, True
     else:
-        return False
+        return a, False
 #3
-def lists(a,b,c,d,e,f,g,h,i,j):
-    L=[a,b,c,d,e,f,g,h,i,j]
+def lists():
+    L=[random.randint(1, 50) for i in range(10)]
     Max=max(L)
     Min=min(L)
     Range=(int(Max) - int(Min))
-    return Max, Min, Range
+    return 'list', L, 'max', Max,'min', Min, 'range', Range
 #4
 def polarcoordinate(q,p):
     #distance
     p=[q,p]
     p0=[0, 0]
     Point = math.dist(p, p0)
-    #angle
-    tan= (p[0]/p[1])
-    a = math.atan(tan)
-    angle = math.degrees(a)
-    return Point, angle
-
-#5
-
+    #angl
+    h = Point
     
-
+    #angle = math.degrees(math.asin(p[1]/h))
+    angle = (math.asin(p[1]/h))*360/(2*math.pi)
+    '''tan= (p[1]/p[0])
+    a = math.atan(tan)
+    angle = abs(math.degrees(a))'''
+    return [h, angle]
+#5
+def scrpts():
+    score = 0
+    name = input("Type a name: ")
+    name = name.lower()
+    for char in name:
+        if char in ["a", "i", "e", "o", "u", "l", "n", "r", "s", "t"]:
+            score = score + 1
+        elif char in ["d", "g"]:
+            score = score + 2
+        elif char in ["b", "c", "m", "p"]:
+            score = score + 3
+        elif char in ["f", "h", "v", "w", "y"]:
+            score = score + 4
+        elif char in ["k"]:
+            score = score + 5
+        elif char in ["j", "x"]:
+            score = score + 8
+        else:
+            score = score + 10
+    return score
+        
 def main():
         print(centralten(3, 5, 6))
         print(rand0m())
-        print(lists(1,2,3,4,5,6,7,8,9,12))
-        print(polarcoordinate(4,4))
-
-
-
+        print(lists())
+        print(polarcoordinate(2,2))
+        print(scrpts())
+        
 
 
 if __name__=="__main__":
     main()
-
-        
-        
