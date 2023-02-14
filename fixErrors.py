@@ -26,7 +26,7 @@ def sentenceData():
     totalChar = 0
     for w in range(len(sen)):
         totalChar = w
-    print("The average word length is: " + str(totalChar/numWords))
+    print("The average word length is: " + str(round(totalChar/numWords, 2)) )
 
 #randomize the characters in a user input name (First and Last)
 # and print out the users new name
@@ -46,9 +46,8 @@ def randomName():
 def main():
     #print(calcThree(1,2,3))
     #print(myMin(L=[1,2,3,4,5,6,7,0,8,9,10]))
-    #sentenceData()
+    sentenceData()
     #randomName()
-
 
 if __name__ == "__main__":
     main()
